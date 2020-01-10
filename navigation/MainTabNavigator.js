@@ -8,7 +8,7 @@ import Screen1 from '../screens/Screen1';
 import Screen2 from '../screens/Screen2';
 import Screen3 from '../screens/Screen3';
 
-const Screen1Stack = createStackNavigator(
+const Tab1Stack = createStackNavigator(
   {
     Home: {
       screen: Screen1,
@@ -19,9 +19,9 @@ const Screen1Stack = createStackNavigator(
   }
 );
 
-Screen1Stack.navigationOptions = ({ screenProps: { t } }) => (
+Tab1Stack.navigationOptions = ({ screenProps: { t } }) => (
   {
-    tabBarLabel: t('screen', { order: 1 }),
+    tabBarLabel: t('tab', { order: 1 }),
     tabBarIcon: ({ focused }) => (
       <TabBarIcon
         focused={focused}
@@ -35,7 +35,7 @@ Screen1Stack.navigationOptions = ({ screenProps: { t } }) => (
   }
 );
 
-const Screen2Stack = createStackNavigator(
+const Tab2Stack = createStackNavigator(
   {
     Home: {
       screen: Screen2,
@@ -45,14 +45,14 @@ const Screen2Stack = createStackNavigator(
     },
 });
 
-Screen2Stack.navigationOptions = ({ screenProps: { t } }) => ({
-  tabBarLabel: t('screen', { order: 2 }),
+Tab2Stack.navigationOptions = ({ screenProps: { t } }) => ({
+  tabBarLabel: t('tab', { order: 2 }),
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
   )
 });
 
-const Screen3Stack = createStackNavigator(
+const Tab3Stack = createStackNavigator(
   {
     Home: {
       screen: Screen3,
@@ -62,9 +62,9 @@ const Screen3Stack = createStackNavigator(
     },
   });
 
-Screen3Stack.navigationOptions = ({ screenProps: { t } }) => (
+Tab3Stack.navigationOptions = ({ screenProps: { t } }) => (
   {
-    tabBarLabel: t('screen', { order: 3 }),
+    tabBarLabel: t('tab', { order: 3 }),
     tabBarIcon: ({ focused }) => (
       <TabBarIcon
         focused={focused}
@@ -74,14 +74,10 @@ Screen3Stack.navigationOptions = ({ screenProps: { t } }) => (
   }
 )
 
-Screen3Stack.path = '';
-
 const tabNavigator = createBottomTabNavigator({
-  Screen1Stack,
-  Screen2Stack,
-  Screen3Stack,
+  Tab1Stack,
+  Tab2Stack,
+  Tab3Stack,
 });
-
-tabNavigator.path = '';
 
 export default tabNavigator;
