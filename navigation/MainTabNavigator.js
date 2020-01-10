@@ -4,25 +4,24 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import Screen1 from '../screens/Screen1';
+import Screen2 from '../screens/Screen2';
+import Screen3 from '../screens/Screen3';
 
-const config = Platform.select({
-  web: { headerMode: 'screen' },
-  default: {},
-});
-
-const HomeStack = createStackNavigator(
+const Screen1Stack = createStackNavigator(
   {
-    Home: HomeScreen,
-  },
-  config
+    Home: {
+      screen: Screen1,
+      navigationOptions: ({ screenProps: { t } }) => ({
+        title: t('screen', { order: 1 })
+      })
+    }
+  }
 );
 
-HomeStack.navigationOptions = ({ screenProps: { t } }) => (
+Screen1Stack.navigationOptions = ({ screenProps: { t } }) => (
   {
-    tabBarLabel: t('home'),
+    tabBarLabel: t('screen', { order: 1 }),
     tabBarIcon: ({ focused }) => (
       <TabBarIcon
         focused={focused}
@@ -36,34 +35,36 @@ HomeStack.navigationOptions = ({ screenProps: { t } }) => (
   }
 );
 
-HomeStack.path = '';
-
-const LinksStack = createStackNavigator(
+const Screen2Stack = createStackNavigator(
   {
-    Links: LinksScreen,
-  },
-  config
-);
+    Home: {
+      screen: Screen2,
+      navigationOptions: ({ screenProps: { t } }) => ({
+        title: t('screen', { order: 2 })
+      })
+    },
+});
 
-LinksStack.navigationOptions = ({ screenProps: { t } }) => ({
-  tabBarLabel: t('links'),
+Screen2Stack.navigationOptions = ({ screenProps: { t } }) => ({
+  tabBarLabel: t('screen', { order: 2 }),
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
   )
 });
 
-LinksStack.path = '';
-
-const SettingsStack = createStackNavigator(
+const Screen3Stack = createStackNavigator(
   {
-    Settings: SettingsScreen,
-  },
-  config
-);
+    Home: {
+      screen: Screen3,
+      navigationOptions: ({ screenProps: { t } }) => ({
+        title: t('screen', { order: 3 })
+      })
+    },
+  });
 
-SettingsStack.navigationOptions = ({ screenProps: { t } }) => (
+Screen3Stack.navigationOptions = ({ screenProps: { t } }) => (
   {
-    tabBarLabel: t('settings'),
+    tabBarLabel: t('screen', { order: 3 }),
     tabBarIcon: ({ focused }) => (
       <TabBarIcon
         focused={focused}
@@ -73,12 +74,12 @@ SettingsStack.navigationOptions = ({ screenProps: { t } }) => (
   }
 )
 
-SettingsStack.path = '';
+Screen3Stack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
+  Screen1Stack,
+  Screen2Stack,
+  Screen3Stack,
 });
 
 tabNavigator.path = '';

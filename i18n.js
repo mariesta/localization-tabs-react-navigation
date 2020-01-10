@@ -6,18 +6,14 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
-      "home": "Home",
-      "links": "Links",
-      "settings": "Settings",
+      "screen": "Screen {{ order }}",
       "change_language_english": "Change language to english",
       "change_language_french": "Change language to french"
     }
   },
   fr: {
     translation: {
-      "home": "Accueil",
-      "links": "Liens",
-      "settings": "Paramètres",
+      "screen": "Écran {{ order }}",
       "change_language_english": "Changer la langue en anglais",
       "change_language_french": "Changer la langue en français"
     }

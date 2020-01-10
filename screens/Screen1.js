@@ -1,10 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-export default class HomeScreen extends React.Component {
-  static navigationOptions = ({ screenProps: { t } }) => ({
-    title: t('home')
-  });
+export default class Screen1 extends React.Component {
 
   render() {
     let { t, i18n} = this.props.screenProps;

@@ -1,6 +1,5 @@
 import React from 'react';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-
+import { createAppContainer } from 'react-navigation';
 import { withTranslation } from 'react-i18next';
 
 import MainTabNavigator from './MainTabNavigator';
